@@ -1,29 +1,17 @@
 package imdbStickers;
 
 public class Functions {
-        
 
-    public static void main(String[] args) {
+    public String ratingStars(String nota) {
 
-        String nota = "5";
-        String stars = "\uD83D\uDE80";
-        
-        for (int i = 0; i < Integer.parseInt(nota); i++) {
+        String stars = "";
+
+        for (int i = 0; i < Math.floor(Double.parseDouble(nota)); i++) {
              
-            System.out.print("\uD83D\uDE00");
+            stars = stars + " X";
         }
+
+        return stars;
     }
-    
-    // public String ratingStars(String nota) {
-
-    //     String stars = "⭐";
-
-    //     for (int i = 0; i < Integer.parseInt(nota); i++) {
-             
-    //         stars = stars + "⭐";
-    //     }
-
-    //     return stars;
-    // }
 
 }
