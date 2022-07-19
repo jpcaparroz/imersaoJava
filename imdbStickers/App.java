@@ -33,12 +33,16 @@ public class App {
 
         // exibir e manipular as informações
         Functions func = new Functions();
+        StickerGerator gerator = new StickerGerator();
 
         for (Map<String,String> filme : listaDeFilmes) {
             System.out.println("Filme: " + filme.get("fullTitle"));
             System.out.println("Poster: " + filme.get("image"));
             System.out.println(ANSI_GREEN + "Nota: " + filme.get("imDbRating") + func.ratingStars(filme.get("imDbRating")) + ANSI_RESET);
             System.out.println();
+
+            // gerando a figurinha personalizada
+            gerator.criar(filme.get("image"), filme.get("title"), filme.get("title"));
         }
 
     }
