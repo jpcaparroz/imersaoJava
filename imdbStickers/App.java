@@ -12,7 +12,7 @@ public class App {
     public static void main(String[] args) throws Exception {
         
         // conectar com HTTP da API > buscar os TOP 250 filmes
-        String url = "https://imdb-api.com/en/API/Top250Movies/k_h2ku7xc7";
+        String url = "https://alura-filmes.herokuapp.com/conteudos";
         URI endereco = URI.create(url);
 
         HttpClient client = HttpClient.newHttpClient();
@@ -25,10 +25,12 @@ public class App {
         List<Map<String, String>> listaDeFilmes = parser.parse(response.body());
 
         // exibir e manipular as informações
+        //Functions func = new Functions();
+
         for (Map<String,String> filme : listaDeFilmes) {
-            System.out.println(filme.get("fullTitle"));
-            System.out.println(filme.get("image"));
-            System.out.println(filme.get("imDbRating"));
+            System.out.println("Filme: " + filme.get("fullTitle"));
+            System.out.println("Poster: " + filme.get("image"));
+            System.out.println("Nota: " + filme.get("imDbRating"));
             System.out.println();
         }
 
