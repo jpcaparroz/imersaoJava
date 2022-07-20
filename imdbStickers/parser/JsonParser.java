@@ -1,4 +1,4 @@
-package imdbStickers;
+package imdbStickers.parser;
 
 import java.util.ArrayList;
 import java.util.HashMap;
