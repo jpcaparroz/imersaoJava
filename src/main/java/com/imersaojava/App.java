@@ -1,4 +1,4 @@
-package imdbStickers;
+package com.imersaojava;
 
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -7,6 +7,8 @@ import java.net.http.HttpResponse;
 import java.net.http.HttpResponse.BodyHandlers;
 import java.util.List;
 import java.util.Map;
+
+import com.imersaojava.parser.JsonParser;
 
 public class App {
 
@@ -33,7 +35,6 @@ public class App {
 
         // exibir e manipular as informações
         Functions func = new Functions();
-        StickerGerator gerator = new StickerGerator();
 
         for (Map<String,String> filme : listaDeFilmes) {
             System.out.println("Filme: " + filme.get("fullTitle"));
@@ -42,7 +43,7 @@ public class App {
             System.out.println();
 
             // gerando a figurinha personalizada
-            gerator.criar(filme.get("image"), filme.get("title"), filme.get("title"));
+            //func.criarSticker(filme.get("image"), filme.get("title"), filme.get("title"));
         }
 
     }

@@ -1,4 +1,4 @@
-package imdbStickers;
+package com.imersaojava.parser;
 
 import java.util.ArrayList;
 import java.util.HashMap;

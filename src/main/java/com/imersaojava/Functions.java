@@ -1,4 +1,4 @@
-package imdbStickers;
+package com.imersaojava;
 
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
@@ -10,9 +10,25 @@ import java.net.URL;
 
 import javax.imageio.ImageIO;
 
-public class StickerGerator {
+public class Functions {
 
-    public void criar(String imageUrl, String stickerText, String imageName) throws Exception{
+    public static final String STAR = "\u2B50";
+
+    // coloca estrelas ao lado da nota do filme
+    public String ratingStars(String nota) {
+
+        String stars = "";
+
+        for (int i = 0; i < Math.floor(Double.parseDouble(nota)); i++) {
+             
+            stars = stars + "result";
+        }
+
+        return stars;
+    }
+
+    // cria sticker 
+    public void criarSticker(String imageUrl, String stickerText, String imageName) throws Exception{
 
         // leitura da imagem
         InputStream inputStream = new URL(imageUrl).openStream() ;
@@ -39,14 +55,8 @@ public class StickerGerator {
         graphics.drawString(stickerText, (width / 2) - 200, newHeight - 100);
 
         // escrever a nova imagem em um arquivo
-        ImageIO.write(newImage, "png", new File("stickers/" + imageName + ".png"));
+        ImageIO.write(newImage, "png", new File("C:/Users/Joao/Desktop/Java/ImersaoJava/test/imersaoJava/images/stickers/" + imageName + ".png"));
 
     }
-    
-    // teste do método cria
-    public static void main(String[] args) throws Exception {
-        StickerGerator gerator = new StickerGerator();
 
-        gerator.criar("https://m.media-amazon.com/images/M/MV5BM2MyNjYxNmUtYTAwNi00MTYxLWJmNWYtYzZlODY3ZTk3OTFlXkEyXkFqcGdeQXVyNzkwMjQ5NzM@.jpg" ,"CARALHOO", "boademais");
-    }
 }
