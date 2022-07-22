@@ -1,14 +1,10 @@
 package com.imersaojava;
 
-import java.net.URI;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
-import java.net.http.HttpResponse.BodyHandlers;
 import java.util.List;
-import java.util.Map;
 
-import com.imersaojava.parser.JsonParser;
+import com.imersaojava.api.ApiExtrator;
+import com.imersaojava.api.ApiNasa;
+import com.imersaojava.model.Conteudo;
 
 public class App {
 
@@ -20,30 +16,27 @@ public class App {
 
     public static void main(String[] args) throws Exception {
         
-        // conectar com HTTP da API > buscar os TOP 250 filmes
-        String url = "https://alura-filmes.herokuapp.com/conteudos";
-        URI endereco = URI.create(url);
+        // conectar com HTTP da API 
+        String url = "https://api.nasa.gov/planetary/apod?api_key=lkKwHHS4Bd8vdeHmqvXWJ9mS1U8zIYTZfKCqs8gf&start_date=2022-06-12&end_date=2022-06-14";
+        ApiExtrator extrator = new ApiNasa();
+        
+        //String url = "https://alura-filmes.herokuapp.com/conteudos";
+        //ApiExtrator extrator = new ApiIMDb();
 
-        HttpClient client = HttpClient.newHttpClient();
-        HttpRequest request = HttpRequest.newBuilder(endereco).GET().build();
-        HttpResponse<String> response = client.send(request, BodyHandlers.ofString());
-
-        // filtrar as informações buscadas com a API (titulo, poster, classificação)
-        JsonParser parser = new JsonParser();
-
-        List<Map<String, String>> listaDeFilmes = parser.parse(response.body());
-
+        ClientHttp client = new ClientHttp();
+        String json = client.buscaDados(url);
+        
         // exibir e manipular as informações
+        List<Conteudo> conteudos = extrator.extraiConteudos(json);
+
         Functions func = new Functions();
 
-        for (Map<String,String> filme : listaDeFilmes) {
-            System.out.println("Filme: " + filme.get("fullTitle"));
-            System.out.println("Poster: " + filme.get("image"));
-            System.out.println(ANSI_GREEN + "Nota: " + filme.get("imDbRating") + func.ratingStars(filme.get("imDbRating")) + ANSI_RESET);
-            System.out.println();
+        for (int i = 0; i < 3; i++) {
 
-            // gerando a figurinha personalizada
-            //func.criarSticker(filme.get("image"), filme.get("title"), filme.get("title"));
+            Conteudo conteudo = conteudos.get(i);
+
+            func.criarSticker(conteudo.getUrlImagem(), conteudo.getTitulo(), "9");
+            System.out.println(i + " -> " + conteudo.getTitulo());
         }
 
     }
