@@ -3,6 +3,7 @@ package com.imersaojava;
 import java.util.List;
 
 import com.imersaojava.api.ApiExtrator;
+import com.imersaojava.api.ApiIMDb;
 import com.imersaojava.api.ApiNasa;
 import com.imersaojava.model.Conteudo;
 
@@ -17,11 +18,15 @@ public class App {
     public static void main(String[] args) throws Exception {
         
         // conectar com HTTP da API 
-        String url = "https://api.nasa.gov/planetary/apod?api_key=lkKwHHS4Bd8vdeHmqvXWJ9mS1U8zIYTZfKCqs8gf&start_date=2022-06-12&end_date=2022-06-14";
-        ApiExtrator extrator = new ApiNasa();
+
+        //String url = "https://api.nasa.gov/planetary/apod?api_key=lkKwHHS4Bd8vdeHmqvXWJ9mS1U8zIYTZfKCqs8gf&start_date=2022-06-12&end_date=2022-06-14";
+        //ApiExtrator extrator = new ApiNasa();
         
         //String url = "https://alura-filmes.herokuapp.com/conteudos";
         //ApiExtrator extrator = new ApiIMDb();
+
+        String url = "http://localhost:8080/linguagens";
+        ApiExtrator extrator = new ApiIMDb();
 
         ClientHttp client = new ClientHttp();
         String json = client.buscaDados(url);
