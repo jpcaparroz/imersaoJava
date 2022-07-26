@@ -44,9 +44,9 @@ public class Functions {
 
         
         // editando sticker
-        InputStream approvedInput = new FileInputStream("C:/Users/Joao/Desktop/Java/ImersaoJava/test/imersaoJava/images/aprovado.png");
-        InputStream halfInput = new FileInputStream("C:/Users/Joao/Desktop/Java/ImersaoJava/test/imersaoJava/images/quase.png");
-        InputStream notInput = new FileInputStream("C:/Users/Joao/Desktop/Java/ImersaoJava/test/imersaoJava/images/jamais.png");
+        InputStream approvedInput = new FileInputStream("./images/aprovado.png");
+        InputStream halfInput = new FileInputStream("./images/quase.png");
+        InputStream notInput = new FileInputStream("./images/jamais.png");
           
         if (Double.parseDouble(nota) >= 9) {
             BufferedImage approved = ImageIO.read(approvedInput);
@@ -63,7 +63,7 @@ public class Functions {
         }
 
         // escrever a nova imagem em um arquivo
-        ImageIO.write(newImage, "png", new File("C:/Users/Joao/Desktop/Java/ImersaoJava/test/imersaoJava/images/stickers/" + imageName + "Sticker.png"));
+        ImageIO.write(newImage, "png", new File("./images/stickers/" + imageName + "Sticker.png"));
 
     }
 

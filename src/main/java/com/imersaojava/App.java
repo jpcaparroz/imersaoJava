@@ -25,7 +25,7 @@ public class App {
         //String url = "https://alura-filmes.herokuapp.com/conteudos";
         //ApiExtrator extrator = new ApiIMDb();
 
-        String url = "http://localhost:8080/linguagens";
+        String url = "https://api-imersao.herokuapp.com/linguagens";
         ApiExtrator extrator = new ApiIMDb();
 
         ClientHttp client = new ClientHttp();
