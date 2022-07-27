@@ -2,12 +2,28 @@
 Imersão Java - Alura 💻
 ![banner-alura-test](https://user-images.githubusercontent.com/72393735/181022735-1fb6ed5c-b7cd-4ea6-9e4e-bdf03336719c.png)
 <p align="center">
-<img src="https://img.shields.io/badge/Linguagem-Java-red"/> <img src="https://img.shields.io/badge/FRAMEWORK-Spring-green"/> <img src="https://img.shields.io/badge/PRINT-App.java-red"/> 
+<img src="https://img.shields.io/badge/Linguagem-Java-critical?style=flat&logo="/> <img src="https://img.shields.io/badge/Framework-Spring-brightgreen??style=flat&logo=spring"/> <img src="https://img.shields.io/badge/BD-MongoDB-green?style=flat&logo=mongodb?link=https://spring.io"/> 
 </p>
-## 📌 Índice
 
+## 📌 Índice
+* [Resumo 📖](##Projeto-|-Aulas)
+* [Código ⌨](##Código)
+* [Selos ✒](##Selos)
+* [Resultados 📈](##Resultados)
+* [Tecnologias 💻](##Tecnologias)
 
 ## 📖 Projeto | Aulas
+Nesta Imersão da Alura o foco foi todo em Java, usando o Spring para conexão com o MongoDB. 
+- Utilizamos uma API pública do IMDb para consumir um JSON de uma lista de 250 melhores filmes || Parseando esse JSON utilizando REGEX e jogando-o dentro de uma `List` dentro de um `Map` 
+> Nesse primeiro momento o código ainda bem cru e sem muita organização, sendo feito tudo no App.java
+
+- Com o JSON transformado em lista, obtemos algumas informações importantes para geração do Sticker, como: `Poster (URL de imagem)` `Nome do Filme` `Nota do Filme`
+|| Assim transformando e salvando esse poster em uma nova imagem para ser salva como .png 
+> Nessa parte já realizei a criação dos `Selos` para ser colocado em cima da imagem do poster, dependendo da nota obtida do JSON ele coloca um selo diferente
+
+- Código organizado e refatorado para a criação da nossa própria `API` utilizando `Spring` e upando ao `MongoDB` uma coleção com os seguintes atributos: `title` `image` `ranking` 
+
+- E a última etapa foi colocar em Nuvem a API para poder acessar de qualquer lugar sem ser localmente. Utilizando o `Heroku` upamos nossa API.
 
 
 #### Aulas
@@ -51,3 +67,6 @@ Os 'Selos de Qualidade' foram feitos utilizando o photoshop e exportados em .png
 |  Selo Quase 🟡 |  _nota_ >= 8.4 |
 |  Selo Jamais 🔴 |  _nota_ < 8.4 |
 
+## 📈 Resultados
+
+## 💻 Tecnologias
